@@ -1,59 +1,145 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-Dados Pessoais    
-</head>
-<body>
-    <form class="formulario" method="post"> 
-        <p> Envie uma mensagem preenchendo o formul�rio abaixo. Seus dados ser�o mantidos em sigilo.</p>
-        <title>Formul�rio HTML</title>
-<form method="get" action="envio_dados.php">
-    <p> <input type="text" name="nome" placeholder="digite  seu Nome completo aqui">
 
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="autor" content="Luciane Molina" />
+        <title>Sistema de cadasto pessoal</title>
+    </head>
 
-    <p> CPF: <input type="text" cpf="cpf" placeholder="digite seu CPF aqui, sem pontos e sem tra�o">
+    <body>
+        <div class="container">
+            <div class="grupo">
+                <h1>Dados Pessoais</h1>
+                <p>Por favor, preencha com os seus dados pessoais. Todos os campos obrigatórios estão marcados com *.</p>
+
+                <!-- O método "onsubmit" checa se todos os campos estão preenchidos -->
+                <form onsubmit="sucesso()">
+
+                    <!-- Agrupar as caixas numa mesma coluna. fluxo de leitura vertical reduz tempo -->
+                    <div class="form-group">
+                        <div class="form-input">
+
+                            <!-- A etiqueta "label" é importante para pessoas com deficiência visual e com leitor de tela. Além disso permite organizar visualmente o preenchimento -->
+                            <label for="nome">* Nome Completo:</label><br>
+                            <!-- input é uma caixa de entrada, type é um tipo de caixa e required indica que a informação é requerida e aparece uma mensagem de aviso se não preencher , id é um identificador checado pela etiqueta "label" -->
+                            <input type="text" required="" id="nome" />
+                        </div>
+                        <div class="form-group col-3">
+                            <div class="form-input">
+                                <label for="email">* Qual é o seu e-mail?</label><br>
+                                <input type="text" required="" id="email"/>
+                            </div>
+                            <div>
+                                <div class="form-input">
+                                    <div class="form-group">
+                                        <div class="form-input">                
+                                <label for="diaa">* Informe a data do seu nascimento:</label>
+                                <input type="date" id="diaa" name="diaa">
+                              </div>
+                            <div class="form-input">
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="cpf">* Informe o CPF:</label><br>
+                            <input id="cpf" placeholder="Digite apenas números, sem pontos e traços" required="numbers" maxlength="11" pattern="[0-9]+$" />
+                        </div>
+                        <div class="form-input">
+                            <label for="rg">* Informe o seu RG:</label><br>
+                            <input type="text" placeholder="Digite apenas números, sem pontos e traços" maxlenght="14" id="rg">
+                        </div>
+                    </div>
+                    <div class="form-input form-sex">
+                        <label for="genero">* Selecione com qual gênero você se identifica:</label>
+                        <select id="genero">
+                            <option value="m">Mulher</option>
+                            <option value="h">Homem</option>
+                            <option value="t">Mulher Trans</option>
+                            <option value="o">Homem Trans</option>
+                            <option value="b">Não Binário</option>
+                            <option value="n">Prefiro não declarar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div class="form-input">
+                            <div class="form-group">
+                                <div class="form-input">
+                                    <p>* * Possue alguma deficiência?</p>
+                                    <input type="radio" name="sim" value=sim">Sim<br>
+                                    <input type="radio" name="nao" value="não">Não<br>
+                                </div>
+                                <div>
+                                    <div class="form-group col-3">
+                                        <div class="form-input">
+                                            <p>Se sim, qual sua deficiência?</p>
+
+<input type="checkbox" name="dv" value="deficiência visual">Deficiência Visual<br>
+    <input type="checkbox" name="da" value="deficiência auditiva">Deficiência auditiva<br>
+    <input type="checkbox" name="df" value="deficiência física">Deficiência Física<br>
+<input type="checkbox" name="di" value="deficiência intelectual">Deficiência Intelectual<br> 
+<input type="checkbox" name="tgd" value="TGD">Transtornos do Desenvolvimento/Autismo<br>
+    <input type="checkbox" name="down" value="síndrome de down">Síndrome de Down<br>
     
-<p> E-mail: <input type="email" name="e-mail" placeholder="digite seu e-mail aqui">
-<p>Ex: exemplo@exemplo.com</p>
+<input type="checkbox" name="outra" value="Outra">Outra<br>
+                                                
+                                            <label for="def">Digite outra aqui.?</label><br>
+                                            <input type="text" required="" id="email"/>
+                                        </div>
+                    
+                                        
+                
+                        <div class="form-input">
+                        <label for="cep">* Qual o seu CEP:</label>
+                        <input class="id" id="cep" placeholder="Digite apenas números" type="text" required="numbers">
+                        <button type="button" onclick="carregaEndereco()">Clique para carregar os campos do endereço</button>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="endereco">Endereço:</label><br>
+                            <input type="text" required="required" id="endereco" />
+                        </div>
+                        <div class="form-input">
+                            <label for="numero">* Número:</label><br>
+                            <input type="text" required="numbers" maxlenght="5" id="numero" />
+                        </div>
+                        <div class="form-input">
+                            <label for="complemento">Complemento:</label><br>
+                            <input type="text" required="numbers" maxlenght="5" id="numero" />
+                        </div>
+                    </div>
+                    <div class="form-group col-3">
+                        <div class="form-input">
+                            <label for="bairro">Bairro:</label><br>
+                            <input type="text" required="" id="bairro"/>
+                        </div>
+                        <div class="form-input">
+                            <label for="cidade">Cidade:</label><br>
+                            <input type="text"required="" id="cidade"/>
+                        </div>
+                        <div class="form-input">
+                            <label for="estado">Estado:</label><br>
+                            <input type="text" required="" id="estado"/>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-input">
+                            <label for="fixo">* Telefone fixo com DDD:</label><br>
+                            <input type="text" id="fixo" maxlength="11" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
+                        </div>
+                        <div class="form-input">
+                            <label for="cel">* Celular/WhatsApp com DDD:</label><br>
+                            <input id="cel" type="text" required="numbers" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
+                        </div>
+                    </div>
+                    <input type="submit" id="cadastrar" value="Enviar dados" />
+                </form>
+            </div>
+        </div>
+        <p>
+            © Luciane Molina <br>
+            <a href="https://facebook.com/braillu" target="_blank">Conecte-se comigo no Facebook:</a><br>        
+        <!-- Anexar um arquivo externo em JavaScript -->
+        <script type="text/javascript" src="js/script.dev.js"></script>
+    </body>
 
-    <p> Endere�o: <input type="text" name="endereco" placeholder="digite seu endere�o aqui">
-<p>Ex: rua/avenida/alameda, n�mero, bairro, cidade/estado, CEP</p>
-
-    
-<p>Telefone: <input type="tel" name="usertel" placeholder="digite seu telefone residencial aqui com DDD">
-<p>Ex: (xx) 9999-9999</p>
-
-<p>Telefone: <input type="tel" name="usertel" placeholder="digite seu telefone celular/WhatsApp aqui com DDD">
-<p>Ex: (xx) 99999-9999</p>
-
-
-    Data de nascimento: <input type="date" name="nascimento" placeholder="digite sua data de nascimento  aqui">    
-<p>DD/MM/AA</p>
-
-
-    <p>Qual seu sexo?</p>
-    <input type="radio" name="feminino"">Feminino <br>
-    <input type="radio" name="masculino">Masculino <br>
-    <input type="radio" name="nao"> Prefiro n�o declarar<br>
-</form>
-
-    
-<p>Qual sua escolariza��o?</p>
-
-<input type="checkbox" name="escola1" value="ensino fundamental">Conclu� o ensino fundamental<br>
-    <input type="checkbox" name="escola2" value="ensino m�dio">conclu� o ensino m�dio<br>
-    <input type="checkbox" name="escola3" value="Ensino superior">Conclu� o ensino superior <br>
-    <input type="checkbox" name="escola4" value="Sem escolariza��o">N�o conclu� escolariza��o.
-    
-    <p>Qual sua idade?</p>
-    <input type="radio" name="idade" value="18_22">18 a 22 <br>
-    <input type="radio" name="idade" value="23_30">23 a 30 <br>
-    <input type="radio" name="idade" value="mais31">acima de 31<br>
-</form>
-    <textarea>Escreva aqui sua mensagem. Em breve retornaremos seu contato.</textarea>
-<input type="submit" name="enviar" value="Enviar">    
-    </form>
-</body>
 </html>
-
-
