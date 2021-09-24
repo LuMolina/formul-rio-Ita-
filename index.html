@@ -4,10 +4,49 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
         <meta name="autor" content="Luciane Molina" />
-        <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="css/style.css">
         <title>Sistema de cadasto pessoal</title>
+        <style>
+
+        body
+        {
+            background-color: lightgrey;
+            padding: 20px;
+        }
+
+        body, button, input, select, textarea
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        form
+        {
+            display: block;
+            max-width: 520px;
+        }
+
+        button, input, select, textarea
+        {
+            padding: 3px;
+        }
+
+        .form-input
+        {
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            gap: 5px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        .form-group2
+        {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        </style>
     </head>
 
     <body>
@@ -20,37 +59,35 @@
                 <form onsubmit="sucesso()">
 
                     <!-- Agrupar as caixas numa mesma coluna. fluxo de leitura vertical reduz tempo -->
-                    <div class="form-group">
-                        <div class="form-input">
+                    <div class="form-input">
 
-                            <!-- A etiqueta "label" é importante para pessoas com deficiência visual e com leitor de tela. Além disso permite organizar visualmente o preenchimento -->
-                            <label for="nome">* Nome Completo:</label><br>
-                            <!-- input é uma caixa de entrada, type é um tipo de caixa e required indica que a informação é requerida e aparece uma mensagem de aviso se não preencher , id é um identificador checado pela etiqueta "label" -->
-                            <input type="text" required="" id="nome" />
-                        </div>
-                        <div class="form-group col-3">
-                            <div class="form-input">
-                                <label for="email">* Qual é o seu e-mail?</label><br>
-                                <input type="text" required="" id="email"/>
-                            </div>
-                            <div>
-                                <div class="form-input">
-                                    <div class="form-group">
-                                        <div class="form-input">                
-                                <label for="diaa">* Informe a data do seu nascimento:</label>
-                                <input type="date" id="diaa" name="diaa">
-                              </div>
-                            <div class="form-input">
-                    <div class="form-group">
+                        <!-- A etiqueta "label" é importante para pessoas com deficiência visual e com leitor de tela. Além disso permite organizar visualmente o preenchimento -->
+                        <label for="nome">* Nome Completo:</label>
+                        <!-- input é uma caixa de entrada, type é um tipo de caixa e required indica que a informação é requerida e aparece uma mensagem de aviso se não preencher , id é um identificador checado pela etiqueta "label" -->
+                        <input type="text" required="" id="nome" />
+                    </div>
+
+                    <div class="form-input">
+                        <label for="email">* Qual é o seu e-mail?</label>
+                        <input type="text" required="" id="email" />
+                    </div>
+
+                    <div class="form-input">
+                        <label for="diaa">* Informe a data do seu nascimento:</label>
+                        <input type="date" id="diaa" name="diaa">
+                    </div>
+
+                    <div class="form-group1">
                         <div class="form-input">
-                            <label for="cpf">* Informe o CPF:</label><br>
+                            <label for="cpf">* Informe o CPF:</label>
                             <input id="cpf" placeholder="Digite apenas números, sem pontos e traços" required="numbers" maxlength="11" pattern="[0-9]+$" />
                         </div>
                         <div class="form-input">
-                            <label for="rg">* Informe o seu RG:</label><br>
+                            <label for="rg">* Informe o seu RG:</label>
                             <input type="text" placeholder="Digite apenas números, sem pontos e traços" maxlenght="14" id="rg">
                         </div>
                     </div>
+
                     <div class="form-input form-sex">
                         <label for="genero">* Selecione com qual gênero você se identifica:</label>
                         <select id="genero">
@@ -62,85 +99,93 @@
                             <option value="n">Prefiro não declarar</option>
                         </select>
                     </div>
-                    <div>
-                        <div class="form-input">
-                            <div class="form-group">
-                                <div class="form-input">
-                                    <p>* * Possue alguma deficiência?</p>
-                                    <input type="radio" name="sim" value=sim">Sim<br>
-                                    <input type="radio" name="nao" value="não">Não<br>
-                                </div>
-                                <div>
-                                    <div class="form-group col-3">
-                                        <div class="form-input">
-                                            <p>Se sim, qual sua deficiência?</p>
 
-<input type="checkbox" name="dv" value="deficiência visual">Deficiência Visual<br>
-    <input type="checkbox" name="da" value="deficiência auditiva">Deficiência auditiva<br>
-    <input type="checkbox" name="df" value="deficiência física">Deficiência Física<br>
-<input type="checkbox" name="di" value="deficiência intelectual">Deficiência Intelectual<br> 
-<input type="checkbox" name="tgd" value="TGD">Transtornos do Desenvolvimento/Autismo<br>
-    <input type="checkbox" name="down" value="síndrome de down">Síndrome de Down<br>
-    
-<input type="checkbox" name="outra" value="Outra">Outra<br>
-                                                
-                                            <label for="def">Digite outra aqui.?</label><br>
-                                            <input type="text"/>
-                                        </div>
-                    
-                                        
-                
-                        <div class="form-input">
+                    <div class="form-input radio">
+                        <label for="deficiencia">* * Possue alguma deficiência?</label>
+                        <div class="radio">
+                            <input type="radio" id="deficiencia" name="sim" value="sim">Sim
+                            <input type="radio" id="deficiencia" name="nao" value="não">Não
+                        </div>
+                    </div>
+
+                    <div class="form-input">
+                        <label for="tipo-de-deficiencia">Se sim, qual sua deficiência?</label>
+
+                        <div class="checkbox">
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="dv"   value="deficiência visual">Deficiência Visual</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="da"   value="deficiência auditiva">Deficiência auditiva</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="df"   value="deficiência física">Deficiência Física</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="di"   value="deficiência intelectual">Deficiência Intelectual</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="tgd"  value="TGD">Transtornos do Desenvolvimento/Autismo</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="down" value="síndrome de down">Síndrome de Down</p>
+                            <p><input type="checkbox" id="tipo-de-deficiencia" name="outra" value="Outra">Outra</p>
+                            
+                            <label for="def">Digite outra aqui.?</label>
+                            <input type="text" />
+                        </div>
+
+                    </div>
+
+                    <div class="form-input">
                         <label for="cep">* Qual o seu CEP:</label>
                         <input class="id" id="cep" placeholder="Digite apenas números" type="text" required="numbers">
                         <button type="button" onclick="carregaEndereco()">Clique para carregar os campos do endereço</button>
                     </div>
-                    <div class="form-group">
+
+                    <div class="form-group2">
                         <div class="form-input">
-                            <label for="endereco">Endereço:</label><br>
+                            <label for="endereco">Endereço:</label>
                             <input type="text" required="required" id="endereco" />
                         </div>
+
                         <div class="form-input">
-                            <label for="numero">* Número:</label><br>
-                            <input type="text" required="numbers" maxlenght="5" id="numero" />
-                        </div>
-                        <div class="form-input">
-                            <label for="complemento">Complemento:</label><br>
+                            <label for="numero">* Número:</label>
                             <input type="text" required="numbers" maxlenght="5" id="numero" />
                         </div>
                     </div>
-                    <div class="form-group col-3">
+                    
+                    <div class="form-input">
+                        <label for="complemento">Complemento:</label>
+                        <input type="text" required="numbers" maxlenght="5" id="numero" />
+                    </div>
+
+                    <div class="form-group3">
                         <div class="form-input">
-                            <label for="bairro">Bairro:</label><br>
-                            <input type="text" required="" id="bairro"/>
+                            <label for="bairro">Bairro:</label>
+                            <input type="text" required="" id="bairro" />
                         </div>
                         <div class="form-input">
-                            <label for="cidade">Cidade:</label><br>
-                            <input type="text"required="" id="cidade"/>
+                            <label for="cidade">Cidade:</label>
+                            <input type="text" required="" id="cidade" />
                         </div>
                         <div class="form-input">
-                            <label for="estado">Estado:</label><br>
-                            <input type="text" required="" id="estado"/>
+                            <label for="estado">Estado:</label>
+                            <input type="text" required="" id="estado" />
+                        </div>
                     </div>
-                    </div>
-                    <div class="form-group">
+
+                    <div class="form-group4">
                         <div class="form-input">
-                            <label for="fixo">* Telefone fixo com DDD:</label><br>
+                            <label for="fixo">* Telefone fixo com DDD:</label>
                             <input type="text" id="fixo" maxlength="11" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
                         </div>
                         <div class="form-input">
-                            <label for="cel">* Celular/WhatsApp com DDD:</label><br>
+                            <label for="cel">* Celular/WhatsApp com DDD:</label>
                             <input id="cel" type="text" required="numbers" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
                         </div>
                     </div>
+
                     <input type="submit" id="cadastrar" value="Enviar dados" />
                 </form>
-            </div>
-        </div>
-        <p>
-            © Luciane Molina <br>
-            <a href="https://www.linkedin.com/in/luciane-maria-molina-barbosa-11164613a/" target="_blank">Conecte-se comigo no Linkedin</a><br>        
-        <!-- Anexar um arquivo externo em JavaScript -->
+            </div> <!-- grupo -->
+        </div> <!-- container -->
+
+        <footer>
+            <p>© Luciane Molina</p>
+            <p><a href="https://facebook.com/braillu" target="_blank">Conecte-se comigo no Facebook:</a></p>
+            <!-- Anexar um arquivo externo em JavaScript -->
+        </footer>
+
         <script type="text/javascript" src="js/script.js"></script>
     </body>
 
