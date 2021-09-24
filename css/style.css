@@ -1,0 +1,39 @@
+body
+{
+    background-color: lightgrey;
+    padding: 20px;
+}
+
+body, button, input, select, textarea
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+form
+{
+    display: block;
+    max-width: 520px;
+}
+
+button, input, select, textarea
+{
+    padding: 3px;
+}
+
+.form-input
+{
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-group2
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+
