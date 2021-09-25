@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-input">
                             <label for="rg">* Informe o seu RG:</label>
-                            <input type="text" placeholder="Digite apenas números, sem pontos e traços" maxlenght="14" id="rg">
+                            <input type="text" placeholder="Digite apenas números, sem pontos e traços" required="numbers" maxlenght="14" id="rg">
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="form-input radio">
-                        <label for="deficiencia">* Possue alguma deficiência?</label>
+                        <label for="deficiencia">Possue alguma deficiência? (opcional)</label>
                         <div class="radio">
                             <input type="radio" id="deficiencia" name="sim" value="sim">Sim
                             <input type="radio" id="deficiencia" name="nao" value="não">Não
@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-input">
-                        <label for="tipo-de-deficiencia">Se sim, qual sua deficiência?</label>
+                        <label for="tipo-de-deficiencia">Se sim, qual sua deficiência? (opcional)</label>
 
                         <div class="checkbox">
                             <p><input type="checkbox" id="tipo-de-deficiencia" name="dv"   value="deficiência visual">Deficiência Visual</p>
@@ -106,8 +106,8 @@
                     </div>
                     
                     <div class="form-input">
-                        <label for="complemento">Complemento:</label>
-                        <input type="text" required="numbers" maxlenght="5" id="numero" />
+                        <label for="complemento">Complemento: (opcional)</label>
+                        <input type="text" maxlenght="5" id="numero" />
                     </div>
 
                     <div class="form-group3">
@@ -128,7 +128,7 @@
                     <div class="form-group4">
                         <div class="form-input">
                             <label for="fixo">* Telefone fixo com DDD:</label>
-                            <input type="text" id="fixo" maxlength="11" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
+                            <input type="text" id="fixo" required="numbers" maxlength="11" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$" placeholder="Digite apenas números" />
                         </div>
                         <div class="form-input">
                             <label for="cel">* Celular/WhatsApp com DDD:</label>
