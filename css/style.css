@@ -1,39 +1,60 @@
-body
-{
-    background-color: lightgrey;
-    padding: 20px;
+.container {
+  background: #FFFFFF;
+  width: 430px;
+  height: 650px;
+  
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px soild silver;
+  
+  font-family: 'Reem Kufi', sans-serif;  
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  
 }
 
-body, button, input, select, textarea
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+h1 {
+  margin: 13px 94px 15px 84px;
+  text-align: Center
 }
-
-form
-{
+label {
+  margin: 81px 30px;
+}
+input {
+    margin: 2px 30px;
     display: block;
-    max-width: 520px;
+    width: 320px;
+    height: 27px;
+}
+.nameClient {
+
 }
 
-button, input, select, textarea
-{
-    padding: 3px;
+.res_name {
+  margin-left: 35px;
+  color: red;
 }
 
-.form-input
-{
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    gap: 5px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+.submit {
+  background: #FFFFFF;
+  color: #EC7000;
+  border: 0px;
+  margin:7px 40px;
+  width: 88px;
+  height: 29px;
+  
+  font-family: Reem Kufi;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
 }
 
-.form-group2
-{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+#campo_observacao {
+  margin: 8px 32px;
+  width: 324px;
+  height: 68px;
 }
-
-
